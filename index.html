@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Real estate website for buying, selling, renting homes and commercial projects." />
+	<title>Welcome to VastuDesh | Buy, Sell & Invest in Properties</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<style>
+	  :root {
+	    --bg: #08111f;
+	    --panel: rgba(10, 19, 34, 0.78);
+	    --panel-strong: #0d1729;
+	    --card: rgba(14, 24, 41, 0.92);
+	    --line: rgba(255, 255, 255, 0.08);
+	    --text: #eaf0ff;
+	    --muted: #a9b6d2;
+	    --accent: #f2b14b;
+	    --accent-2: #55c8a0;
+	    --accent-3: #7cb8ff;
+	    --shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+	  }
+
+	  * { box-sizing: border-box; }
+	  html { scroll-behavior: smooth; }
+	  body {
+	    margin: 0;
+	    font-family: "Inter", system-ui, sans-serif;
+	    background:
+	      radial-gradient(circle at top left, rgba(242, 177, 75, 0.12), transparent 28%),
+	      radial-gradient(circle at 85% 10%, rgba(124, 184, 255, 0.13), transparent 25%),
+	      linear-gradient(180deg, #07101c 0%, #0b1526 45%, #07101c 100%);
+	    color: var(--text);
+	  }
+
+	  a { color: inherit; text-decoration: none; }
+	  .navbar {
+	    background: rgba(5, 10, 19, 0.72);
+	    backdrop-filter: blur(14px);
+	    border-bottom: 1px solid var(--line);
+	  }
+	  .navbar-brand {
+	    font-family: "Playfair Display", serif;
+	    letter-spacing: 0.03em;
+	    font-size: 1.45rem;
+	  }
+	  .nav-link { color: rgba(234, 240, 255, 0.8) !important; }
+	  .nav-link:hover, .nav-link.active { color: #fff !important; }
+
+	  .hero {
+	    position: relative;
+	    min-height: 100vh;
+	    display: grid;
+	    align-items: center;
+	    padding: 110px 0 60px;
+	    overflow: hidden;
+	  }
+	  .hero::before,
+	  .hero::after {
+	    content: "";
+	    position: absolute;
+	    border-radius: 999px;
+	    filter: blur(20px);
+	    opacity: 0.8;
+	  }
+	  .hero::before {
+	    width: 380px;
+	    height: 380px;
+	    top: -140px;
+	    right: -80px;
+	    background: rgba(242, 177, 75, 0.16);
+	  }
+	  .hero::after {
+	    width: 320px;
+	    height: 320px;
+	    left: -140px;
+	    bottom: -120px;
+	    background: rgba(85, 200, 160, 0.14);
+	  }
+	  .eyebrow {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 0.5rem;
+	    padding: 0.5rem 0.9rem;
+	    background: rgba(255, 255, 255, 0.05);
+	    border: 1px solid var(--line);
+	    border-radius: 999px;
+	    color: var(--muted);
+	    font-size: 0.92rem;
+	  }
+	  .eyebrow-dot {
+	    width: 0.55rem;
+	    height: 0.55rem;
+	    border-radius: 50%;
+	    background: var(--accent-2);
+	    box-shadow: 0 0 0 6px rgba(85, 200, 160, 0.14);
+	  }
+	  .display-title {
+	    font-family: "Playfair Display", serif;
+	    font-weight: 800;
+	    font-size: clamp(2.8rem, 6vw, 5.8rem);
+	    line-height: 0.95;
+	    letter-spacing: -0.03em;
+	    margin: 1rem 0;
+	  }
+	  .lead-copy {
+	    color: var(--muted);
+	    max-width: 38rem;
+	    font-size: 1.06rem;
+	    line-height: 1.8;
+	  }
+
+	  .hero-panel,
+	  .glass-card,
+	  .info-card,
+	  .stats-card,
+	  .filter-bar {
+	    background: var(--panel);
+	    border: 1px solid var(--line);
+	    box-shadow: var(--shadow);
+	    backdrop-filter: blur(16px);
+	  }
+	  .hero-panel {
+	    border-radius: 28px;
+	    padding: 1.2rem;
+	  }
+	  .hero-image {
+	    min-height: 420px;
+	    border-radius: 24px;
+	    background:
+	      linear-gradient(180deg, rgba(8, 17, 31, 0.2), rgba(8, 17, 31, 0.78)),
+	      url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80') center/cover;
+	    position: relative;
+	    overflow: hidden;
+	  }
+	  .hero-image::after {
+	    content: "Premium homes and commercial spaces";
+	    position: absolute;
+	    left: 18px;
+	    bottom: 18px;
+	    padding: 0.85rem 1rem;
+	    border-radius: 16px;
+	    background: rgba(8, 17, 31, 0.82);
+	    border: 1px solid rgba(255, 255, 255, 0.08);
+	    color: #fff;
+	    font-weight: 600;
+	  }
+
+	  .btn-accent {
+	    background: var(--accent);
+	    border-color: var(--accent);
+	    color: #111;
+	    font-weight: 700;
+	  }
+	  .btn-accent:hover {
+	    background: #ffbf63;
+	    border-color: #ffbf63;
+	    color: #111;
+	  }
+	  .btn-outline-light {
+	    border-color: rgba(255, 255, 255, 0.18);
+	  }
+
+	  .stat-grid {
+	    display: grid;
+	    grid-template-columns: repeat(3, minmax(0, 1fr));
+	    gap: 1rem;
+	    margin-top: 1.5rem;
+	  }
+	  .stats-card {
+	    border-radius: 20px;
+	    padding: 1rem;
+	  }
+	  .stats-card h3 {
+	    margin: 0;
+	    font-size: 1.5rem;
+	    font-weight: 800;
+	  }
+	  .stats-card p {
+	    margin: 0.25rem 0 0;
+	    color: var(--muted);
+	    font-size: 0.92rem;
+	  }
+
+	  section { padding: 80px 0; }
+	  .section-label {
+	    color: var(--accent);
+	    text-transform: uppercase;
+	    letter-spacing: 0.1em;
+	    font-size: 0.8rem;
+	    font-weight: 800;
+	  }
+	  .section-title {
+	    font-family: "Playfair Display", serif;
+	    font-size: clamp(2rem, 4vw, 3.4rem);
+	    margin: 0.55rem 0 0.75rem;
+	  }
+	  .section-copy {
+	    color: var(--muted);
+	    max-width: 46rem;
+	    line-height: 1.8;
+	  }
+
+	  .filter-bar {
+	    border-radius: 24px;
+	    padding: 1.1rem;
+	    margin-top: -42px;
+	    position: relative;
+	    z-index: 3;
+	  }
+	  .form-control, .form-select, .input-group-text {
+	    background: rgba(255, 255, 255, 0.04);
+	    border-color: rgba(255, 255, 255, 0.12);
+	    color: var(--text);
+	  }
+	  .form-control::placeholder { color: rgba(234, 240, 255, 0.46); }
+	  .form-control:focus, .form-select:focus {
+	    background: rgba(255, 255, 255, 0.06);
+	    color: var(--text);
+	    border-color: rgba(242, 177, 75, 0.5);
+	    box-shadow: 0 0 0 0.2rem rgba(242, 177, 75, 0.15);
+	  }
+
+	  .property-card,
+	  .project-card,
+	  .blog-card,
+	  .role-card,
+	  .contact-card,
+	  .detail-card,
+	  .form-card {
+	    background: var(--card);
+	    border: 1px solid var(--line);
+	    border-radius: 24px;
+	    box-shadow: var(--shadow);
+	    overflow: hidden;
+	    height: 100%;
+	  }
+	  .property-image,
+	  .project-image,
+	  .blog-image {
+	    min-height: 220px;
+	    background-size: cover;
+	    background-position: center;
+	  }
+	  .property-body,
+	  .project-body,
+	  .blog-body,
+	  .role-body,
+	  .contact-body,
+	  .form-body,
+	  .detail-body {
+	    padding: 1.25rem;
+	  }
+	  .chip-row {
+	    display: flex;
+	    flex-wrap: wrap;
+	    gap: 0.5rem;
+	    margin-bottom: 0.8rem;
+	  }
+	  .chip {
+	    padding: 0.35rem 0.7rem;
+	    border-radius: 999px;
+	    background: rgba(255, 255, 255, 0.06);
+	    color: var(--muted);
+	    font-size: 0.82rem;
+	    border: 1px solid rgba(255, 255, 255, 0.06);
+	  }
+	  .price {
+	    color: #fff;
+	    font-size: 1.35rem;
+	    font-weight: 800;
+	  }
+	  .meta {
+	    color: var(--muted);
+	    font-size: 0.92rem;
+	  }
+	  .divider {
+	    height: 1px;
+	    background: var(--line);
+	    margin: 1rem 0;
+	  }
+
+	  .info-card {
+	    border-radius: 22px;
+	    padding: 1.2rem;
+	    height: 100%;
+	  }
+	  .info-card h4,
+	  .role-card h4,
+	  .contact-card h4,
+	  .form-card h4 {
+	    font-size: 1.1rem;
+	    margin-bottom: 0.75rem;
+	  }
+	  .info-card p,
+	  .role-card p,
+	  .contact-card p,
+	  .form-card p,
+	  .blog-body p {
+	    color: var(--muted);
+	    line-height: 1.75;
+	    margin-bottom: 0;
+	  }
+
+	  .list-clean {
+	    list-style: none;
+	    padding: 0;
+	    margin: 0;
+	  }
+	  .list-clean li {
+	    padding: 0.45rem 0;
+	    color: var(--muted);
+	    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+	  }
+	  .list-clean li:last-child { border-bottom: 0; }
+
+	  .testimonial {
+	    background: linear-gradient(180deg, rgba(242, 177, 75, 0.08), rgba(255, 255, 255, 0.02));
+	    border: 1px solid rgba(242, 177, 75, 0.16);
+	    border-radius: 22px;
+	    padding: 1.2rem;
+	    height: 100%;
+	  }
+	  .testimonial p {
+	    color: var(--muted);
+	    line-height: 1.8;
+	  }
+	  .avatar {
+	    width: 48px;
+	    height: 48px;
+	    border-radius: 50%;
+	    background: linear-gradient(135deg, var(--accent), var(--accent-3));
+	    display: grid;
+	    place-items: center;
+	    color: #08111f;
+	    font-weight: 800;
+	  }
+
+	  .section-surface {
+	    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+	    border-top: 1px solid rgba(255, 255, 255, 0.04);
+	    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+	  }
+
+	  .footer {
+	    padding: 40px 0 30px;
+	    color: var(--muted);
+	    border-top: 1px solid var(--line);
+	    background: rgba(4, 8, 15, 0.72);
+	  }
+	  .socials a {
+	    display: inline-flex;
+	    width: 42px;
+	    height: 42px;
+	    align-items: center;
+	    justify-content: center;
+	    border-radius: 50%;
+	    background: rgba(255, 255, 255, 0.05);
+	    border: 1px solid var(--line);
+	    margin-right: 0.6rem;
+	  }
+
+	  .reveal { animation: floatIn 0.8s ease both; }
+	  .delay-1 { animation-delay: 0.1s; }
+	  .delay-2 { animation-delay: 0.2s; }
+	  .delay-3 { animation-delay: 0.3s; }
+	  .delay-4 { animation-delay: 0.4s; }
+
+	  @keyframes floatIn {
+	    from { opacity: 0; transform: translateY(24px); }
+	    to { opacity: 1; transform: translateY(0); }
+	  }
+
+	  @media (max-width: 991px) {
+	    .hero { min-height: auto; padding-top: 110px; }
+	    .stat-grid { grid-template-columns: 1fr; }
+	    .hero-image { min-height: 320px; }
+	  }
+	</style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-root-margin="0px 0px -40%" tabindex="0">
+	<nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<a class="navbar-brand text-white" href="#home">VastuDesh BuildTech</a>
+			<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navMenu">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+					<li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="#buy">Buy Property</a></li>
+					<li class="nav-item"><a class="nav-link" href="#sell">Sell Property</a></li>
+					<li class="nav-item"><a class="nav-link" href="#commercial">Commercial</a></li>
+					<li class="nav-item"><a class="nav-link" href="#residential">Residential</a></li>
+					<li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header id="home" class="hero">
+		<div class="container position-relative">
+			<div class="row align-items-center g-5">
+				<div class="col-lg-6">
+					<div class="eyebrow reveal"><span class="eyebrow-dot"></span> Residential and commercial property marketplace</div>
+					<h1 class="display-title reveal delay-1">Buy, sell, rent, and invest with confidence.</h1>
+					<p class="lead-copy reveal delay-2">Explore premium homes, commercial projects, investment-ready spaces, and curated property listings with fast search, detailed project information, and easy inquiry options.</p>
+					<div class="d-flex flex-wrap gap-3 mt-4 reveal delay-3">
+						<a href="#buy" class="btn btn-accent btn-lg px-4">Explore Properties</a>
+						<a href="#contact" class="btn btn-outline-light btn-lg px-4">Talk to an Agent</a>
+					</div>
+					<div class="stat-grid reveal delay-4">
+						<div class="stats-card">
+							<h3>1,200+</h3>
+							<p>Verified property listings</p>
+						</div>
+						<div class="stats-card">
+							<h3>350+</h3>
+							<p>Commercial projects</p>
+						</div>
+						<div class="stats-card">
+							<h3>24/7</h3>
+							<p>Inquiry support</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="hero-panel reveal delay-2">
+						<div class="hero-image"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="pt-0">
+		<div class="container">
+			<div class="filter-bar">
+				<div class="row g-3 align-items-end">
+					<div class="col-lg-3 col-md-6">
+						<label class="form-label text-light">Location</label>
+						<input id="filterLocation" class="form-control" placeholder="City, area, locality" />
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label class="form-label text-light">Budget</label>
+						<select id="filterBudget" class="form-select">
+							<option value="">Any</option>
+							<option value="low">Under $150k</option>
+							<option value="mid">$150k - $500k</option>
+							<option value="high">Above $500k</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label class="form-label text-light">Property Type</label>
+						<select id="filterType" class="form-select">
+							<option value="">Any</option>
+							<option value="apartment">Apartment</option>
+							<option value="villa">Villa</option>
+							<option value="office">Office</option>
+							<option value="retail">Retail</option>
+							<option value="plot">Plot</option>
+							<option value="warehouse">Warehouse</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label class="form-label text-light">Category</label>
+						<select id="filterCategory" class="form-select">
+							<option value="">Any</option>
+							<option value="residential">Residential</option>
+							<option value="commercial">Commercial</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label class="form-label text-light">Bedrooms</label>
+						<select id="filterBedrooms" class="form-select">
+							<option value="">Any</option>
+							<option value="1">1+</option>
+							<option value="2">2+</option>
+							<option value="3">3+</option>
+							<option value="4">4+</option>
+						</select>
+					</div>
+					<div class="col-lg-1 col-md-6 d-grid">
+						<button id="clearFilters" class="btn btn-accent">Reset</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="roles" class="section-surface">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">User Roles</div>
+					<h2 class="section-title">Built for admins, customers, and agents.</h2>
+					<p class="section-copy">A single platform can support role-based workflows for managing listings, handling inquiries, and moving users from search to site visit and final conversion.</p>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-md-4">
+					<div class="role-card">
+						<div class="role-body">
+							<h4>Admin</h4>
+							<p>Manage users, property listings, commercial projects, inquiries, blogs, and testimonials from one dashboard.</p>
+							<div class="divider"></div>
+							<ul class="list-clean">
+								<li>Add, edit, delete properties</li>
+								<li>Approve seller submissions</li>
+								<li>Track customer inquiries</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="role-card">
+						<div class="role-body">
+							<h4>Customer</h4>
+							<p>Search properties, save favorites, review details, submit inquiries, and contact agents directly.</p>
+							<div class="divider"></div>
+							<ul class="list-clean">
+								<li>Register / login</li>
+								<li>View property details</li>
+								<li>Submit and track inquiries</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="role-card">
+						<div class="role-body">
+							<h4>Agent</h4>
+							<p>Add property listings, update availability, and respond to customer questions with speed.</p>
+							<div class="divider"></div>
+							<ul class="list-clean">
+								<li>Create new listings</li>
+								<li>Update status and pricing</li>
+								<li>Handle lead follow-up</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="buy">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Buy a Home</div>
+					<h2 class="section-title">Find the right property by city, budget, bedrooms, and type.</h2>
+					<p class="section-copy">Use the filters above to explore apartments, villas, plots, and ready-to-move options. Each listing includes location, pricing, key features, and inquiry actions.</p>
+				</div>
+			</div>
+			<div class="row g-4" id="propertyGrid">
+				<div class="col-lg-4 col-md-6 property-item" data-location="Mumbai" data-budget="high" data-type="apartment" data-category="residential" data-bedrooms="3">
+					<div class="property-card">
+						<div class="property-image" style="background-image:url('https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="property-body">
+							<div class="chip-row"><span class="chip">Apartment</span><span class="chip">Ready to move</span><span class="chip">3 BHK</span></div>
+							<h4>Skyline Residency</h4>
+							<div class="meta">Mumbai, Maharashtra</div>
+							<div class="divider"></div>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="price">$620k</div>
+								<a href="#details" class="btn btn-sm btn-outline-light">View Details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 property-item" data-location="Pune" data-budget="mid" data-type="villa" data-category="residential" data-bedrooms="4">
+					<div class="property-card">
+						<div class="property-image" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="property-body">
+							<div class="chip-row"><span class="chip">Villa</span><span class="chip">New launch</span><span class="chip">4 BHK</span></div>
+							<h4>Green Meadows Villa</h4>
+							<div class="meta">Pune, Maharashtra</div>
+							<div class="divider"></div>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="price">$340k</div>
+								<a href="#details" class="btn btn-sm btn-outline-light">View Details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 property-item" data-location="Bengaluru" data-budget="low" data-type="plot" data-category="residential" data-bedrooms="0">
+					<div class="property-card">
+						<div class="property-image" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="property-body">
+							<div class="chip-row"><span class="chip">Plot</span><span class="chip">Investment</span><span class="chip">Approved</span></div>
+							<h4>Emerald Township Plot</h4>
+							<div class="meta">Bengaluru, Karnataka</div>
+							<div class="divider"></div>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="price">$120k</div>
+								<a href="#details" class="btn btn-sm btn-outline-light">View Details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="commercial" class="section-surface">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Commercial Projects</div>
+					<h2 class="section-title">Office spaces, retail shops, business parks, and warehouses.</h2>
+					<p class="section-copy">Commercial listings are structured for investors and business owners who need strong location data, brochure downloads, and quick lead generation.</p>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-3 col-md-6">
+					<div class="project-card">
+						<div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="project-body">
+							<div class="chip-row"><span class="chip">Office Space</span></div>
+							<h4>Axis Business Tower</h4>
+							<p>Premium office spaces with metro access and flexible floor plans.</p>
+							<div class="divider"></div>
+							<a href="#contact" class="btn btn-sm btn-accent w-100">Inquiry Form</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="project-card">
+						<div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="project-body">
+							<div class="chip-row"><span class="chip">Retail Shops</span></div>
+							<h4>Market Street Plaza</h4>
+							<p>High-footfall retail locations for brands and local businesses.</p>
+							<div class="divider"></div>
+							<a href="#contact" class="btn btn-sm btn-accent w-100">Inquiry Form</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="project-card">
+						<div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="project-body">
+							<div class="chip-row"><span class="chip">Business Park</span></div>
+							<h4>North Gate Business Park</h4>
+							<p>Mixed-use campus with modern amenities and investment appeal.</p>
+							<div class="divider"></div>
+							<a href="#contact" class="btn btn-sm btn-accent w-100">Inquiry Form</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="project-card">
+						<div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="project-body">
+							<div class="chip-row"><span class="chip">Warehouse</span></div>
+							<h4>LogiCore Warehouse Hub</h4>
+							<p>Large-format warehouse units for logistics and distribution.</p>
+							<div class="divider"></div>
+							<a href="#contact" class="btn btn-sm btn-accent w-100">Inquiry Form</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="residential">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Residential Projects</div>
+					<h2 class="section-title">Apartments, villas, independent houses, and plots.</h2>
+					<p class="section-copy">Each residential project can show amenities, project location, pricing, gallery, and brochure downloads for a smooth discovery journey.</p>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-4 col-md-6">
+					<div class="detail-card">
+						<div class="detail-body">
+							<h4>Project Amenities</h4>
+							<ul class="list-clean">
+								<li>Clubhouse, gym, and pool</li>
+								<li>Children's play area</li>
+								<li>24x7 security and parking</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="detail-card">
+						<div class="detail-body">
+							<h4>Project Location</h4>
+							<ul class="list-clean">
+								<li>Near schools and hospitals</li>
+								<li>Strong transport connectivity</li>
+								<li>Easy access to business hubs</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="detail-card">
+						<div class="detail-body">
+							<h4>Brochure & Gallery</h4>
+							<p class="mb-3">Provide floor plans, downloadable brochures, and a gallery to help customers make informed decisions.</p>
+							<a href="#contact" class="btn btn-accent">Download Brochure</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="details" class="section-surface">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Property Details</div>
+					<h2 class="section-title">Everything a buyer needs before they inquire.</h2>
+					<p class="section-copy">Dedicated property pages can include images, description, location map, amenities, price, floor plans, contact form, and share options.</p>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-7">
+					<div class="detail-card h-100">
+						<div class="detail-body">
+							<div class="d-flex flex-wrap gap-2 mb-3">
+								<span class="chip">Images</span>
+								<span class="chip">Description</span>
+								<span class="chip">Map</span>
+								<span class="chip">Amenities</span>
+								<span class="chip">Floor Plans</span>
+								<span class="chip">Share</span>
+							</div>
+							<h4>Modern family-friendly residence</h4>
+							<p class="mb-3">A premium home with a smart layout, natural light, open spaces, and a location suited for long-term value. The property detail page is designed to capture leads while giving users enough information to move forward confidently.</p>
+							<div class="row g-3">
+								<div class="col-md-6">
+									<div class="info-card">
+										<h4>Key Highlights</h4>
+										<ul class="list-clean">
+											<li>3 bedrooms and 3 bathrooms</li>
+											<li>Covered parking and balcony</li>
+											<li>Ready-to-move status</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="info-card">
+										<h4>Contact Actions</h4>
+										<ul class="list-clean">
+											<li>Request a site visit</li>
+											<li>Submit an inquiry</li>
+											<li>Share with family</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="form-card h-100">
+						<div class="form-body">
+							<h4>Quick Inquiry</h4>
+							<p class="mb-3">Send a request and our team will contact you with the right options.</p>
+							<form class="row g-3">
+								<div class="col-12"><input class="form-control" placeholder="Your Name" /></div>
+								<div class="col-12"><input class="form-control" placeholder="Phone Number" /></div>
+								<div class="col-12"><input class="form-control" placeholder="Email Address" /></div>
+								<div class="col-12"><textarea class="form-control" rows="4" placeholder="Your message"></textarea></div>
+								<div class="col-12 d-grid"><button type="submit" class="btn btn-accent">Submit Inquiry</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="sell">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Sell a Home</div>
+					<h2 class="section-title">Submit your property and let admins approve it.</h2>
+					<p class="section-copy">This section supports property submission with image uploads, owner details, property information, and approval workflows before publishing.</p>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-7">
+					<div class="form-card">
+						<div class="form-body">
+							<h4>Property Submission Form</h4>
+							<form class="row g-3">
+								<div class="col-md-6"><input class="form-control" placeholder="Owner Name" /></div>
+								<div class="col-md-6"><input class="form-control" placeholder="Owner Phone" /></div>
+								<div class="col-md-6"><input class="form-control" placeholder="Property Title" /></div>
+								<div class="col-md-6"><input class="form-control" placeholder="Location" /></div>
+								<div class="col-md-4"><input class="form-control" placeholder="Price" /></div>
+								<div class="col-md-4"><select class="form-select"><option>Residential</option><option>Commercial</option></select></div>
+								<div class="col-md-4"><select class="form-select"><option>Ready to move</option><option>New launch</option><option>Resale</option></select></div>
+								<div class="col-12"><textarea class="form-control" rows="4" placeholder="Property details"></textarea></div>
+								<div class="col-12"><input class="form-control" type="file" multiple /></div>
+								<div class="col-12 d-grid"><button type="submit" class="btn btn-accent">Send for Approval</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="info-card h-100">
+						<h4>Approval Flow</h4>
+						<ul class="list-clean mb-3">
+							<li>Owner submits property details</li>
+							<li>Admin reviews images and information</li>
+							<li>Approved listings go live on the site</li>
+						</ul>
+						<div class="divider"></div>
+						<h4>Owner Information</h4>
+						<ul class="list-clean">
+							<li>Name, contact, and email</li>
+							<li>Property address and locality</li>
+							<li>Preferred selling timeline</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="blog" class="section-surface">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Blog Section</div>
+					<h2 class="section-title">Property news, buying guides, selling tips, and investment advice.</h2>
+					<p class="section-copy">Publishing valuable content helps SEO, builds trust, and gives buyers and sellers practical guidance throughout the journey.</p>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-4 col-md-6">
+					<div class="blog-card">
+						<div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="blog-body">
+							<div class="chip-row"><span class="chip">Buying Guide</span></div>
+							<h4>How to compare property locations</h4>
+							<p>Use neighborhood growth, access, and resale potential to evaluate the best options.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="blog-card">
+						<div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="blog-body">
+							<div class="chip-row"><span class="chip">Selling Tips</span></div>
+							<h4>Preparing a property for sale</h4>
+							<p>Good images, clean information, and fair pricing improve visibility and lead quality.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="blog-card">
+						<div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=1200&q=80')"></div>
+						<div class="blog-body">
+							<div class="chip-row"><span class="chip">Investment Advice</span></div>
+							<h4>Commercial property basics for investors</h4>
+							<p>Understand yields, vacancy risk, and tenant demand before buying commercial assets.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-surface">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Testimonials</div>
+					<h2 class="section-title">Trust built through real client experiences.</h2>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-4">
+					<div class="testimonial">
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<div class="avatar">AR</div>
+							<div>
+								<strong>Anita Rao</strong><br /><span class="meta">Home Buyer</span>
+							</div>
+						</div>
+						<p>The search filters made it easy to shortlist homes quickly, and the inquiry flow was simple and responsive.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="testimonial">
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<div class="avatar">SK</div>
+							<div>
+								<strong>Sameer Khan</strong><br /><span class="meta">Investor</span>
+							</div>
+						</div>
+						<p>The commercial project pages and brochure download approach give a clear picture before any site visit.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="testimonial">
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<div class="avatar">DP</div>
+							<div>
+								<strong>Divya Patel</strong><br /><span class="meta">Property Seller</span>
+							</div>
+						</div>
+						<p>Submitting my listing was straightforward, and the approval workflow gave confidence that everything was handled properly.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact">
+		<div class="container">
+			<div class="row align-items-end mb-4">
+				<div class="col-lg-8">
+					<div class="section-label">Contact Us</div>
+					<h2 class="section-title">Reach the team by form, phone, email, or office location.</h2>
+					<p class="section-copy">The contact area is designed for lead capture, agent communication, and Google Map embedding in a production version.</p>
+				</div>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-5">
+					<div class="contact-card h-100">
+						<div class="contact-body">
+							<h4>Office Details</h4>
+							<p class="mb-3">BHU Realty, 120 Market Avenue, Business District, India</p>
+							<div class="divider"></div>
+							<p class="mb-2"><strong>Phone:</strong> +91 98765 43210</p>
+							<p class="mb-2"><strong>Email:</strong> hello@bhurealty.com</p>
+							<p class="mb-0"><strong>Hours:</strong> Mon - Sat, 9:00 AM - 7:00 PM</p>
+							<div class="divider"></div>
+							<div class="socials">
+								<a href="#" aria-label="Facebook">f</a>
+								<a href="#" aria-label="Instagram">ig</a>
+								<a href="#" aria-label="LinkedIn">in</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-7">
+					<div class="form-card h-100">
+						<div class="form-body">
+							<h4>Contact Form</h4>
+							<form class="row g-3">
+								<div class="col-md-6"><input class="form-control" placeholder="Full Name" /></div>
+								<div class="col-md-6"><input class="form-control" placeholder="Email Address" /></div>
+								<div class="col-md-6"><input class="form-control" placeholder="Phone Number" /></div>
+								<div class="col-md-6"><select class="form-select"><option>I want to buy</option><option>I want to sell</option><option>I need commercial space</option><option>I need support</option></select></div>
+								<div class="col-12"><textarea class="form-control" rows="5" placeholder="How can we help you?"></textarea></div>
+								<div class="col-12 d-grid d-md-flex justify-content-md-end"><button type="submit" class="btn btn-accent px-4">Send Message</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-surface">
+		<div class="container">
+			<div class="row g-4">
+				<div class="col-lg-4">
+					<div class="info-card">
+						<h4>Website Pages</h4>
+						<ul class="list-clean">
+							<li>Home, About Us, Buy Property</li>
+							<li>Sell Property, Commercial Projects</li>
+							<li>Residential Projects, Property Details</li>
+							<li>Blog, Contact Us, Login, Register</li>
+							<li>Dashboard and Admin Panel</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="info-card">
+						<h4>Database Modules</h4>
+						<ul class="list-clean">
+							<li>Users and Admin</li>
+							<li>Properties and Images</li>
+							<li>Commercial and Residential Projects</li>
+							<li>Inquiries, Testimonials, Blogs</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="info-card">
+						<h4>Future Enhancements</h4>
+						<ul class="list-clean">
+							<li>Virtual tours and live chat</li>
+							<li>Mortgage calculator and AI recommendations</li>
+							<li>Online booking and payment gateway</li>
+							<li>Mobile app and multi-language support</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+				<div>
+					<strong class="text-white">BHU Realty</strong>
+					<div>Responsive real estate website template for homes and commercial projects.</div>
+				</div>
+				<div class="text-md-end">Built for property discovery, inquiries, and lead management.</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+	  const filterLocation = document.getElementById('filterLocation');
+	  const filterBudget = document.getElementById('filterBudget');
+	  const filterType = document.getElementById('filterType');
+	  const filterCategory = document.getElementById('filterCategory');
+	  const filterBedrooms = document.getElementById('filterBedrooms');
+	  const clearFilters = document.getElementById('clearFilters');
+	  const propertyItems = document.querySelectorAll('.property-item');
+
+	  function matchesFilter(item) {
+	    const location = (filterLocation.value || '').trim().toLowerCase();
+	    const itemLocation = (item.dataset.location || '').toLowerCase();
+	    const budget = filterBudget.value;
+	    const type = filterType.value;
+	    const category = filterCategory.value;
+	    const bedrooms = filterBedrooms.value;
+
+	    const locationOk = !location || itemLocation.includes(location);
+	    const budgetOk = !budget || item.dataset.budget === budget;
+	    const typeOk = !type || item.dataset.type === type;
+	    const categoryOk = !category || item.dataset.category === category;
+	    const bedroomsOk = !bedrooms || Number(item.dataset.bedrooms || 0) >= Number(bedrooms);
+
+	    return locationOk && budgetOk && typeOk && categoryOk && bedroomsOk;
+	  }
+
+	  function applyFilters() {
+	    propertyItems.forEach((item) => {
+	      item.style.display = matchesFilter(item) ? '' : 'none';
+	    });
+	  }
+
+	  [filterLocation, filterBudget, filterType, filterCategory, filterBedrooms].forEach((input) => {
+	    input.addEventListener('input', applyFilters);
+	    input.addEventListener('change', applyFilters);
+	  });
+
+	  clearFilters.addEventListener('click', () => {
+	    filterLocation.value = '';
+	    filterBudget.value = '';
+	    filterType.value = '';
+	    filterCategory.value = '';
+	    filterBedrooms.value = '';
+	    applyFilters();
+	  });
+	</script>
+</body>
+</html>
